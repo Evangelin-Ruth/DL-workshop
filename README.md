@@ -31,7 +31,7 @@ http://alexlenail.me/NN-SVG/index.html
 
 ### STEP 10:Display the graph.
 ## PROGRAM
-
+```
 
 import pandas as pd
 import numpy as np
@@ -54,9 +54,9 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras.callbacks import EarlyStopping
-
+```
 # Read the data
-
+```
 df = pd.read_csv("mushrooms.csv")
 df.columns
 df.dtypes
@@ -127,9 +127,9 @@ y = ohe.transform(y1).toarray()
 
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=1/3,random_state=50)
+```
 # Build the Model
-# Build the Model
-
+```
 ai = Sequential([Dense(77,input_shape = [22]),
                  Dense(77,activation="relu"),
                  Dense(65,activation="relu"),
@@ -150,9 +150,10 @@ ai.fit( x = x_train, y = y_train,
         epochs=500, batch_size=256,
         validation_data=(x_test,y_test),
         callbacks = [early_stop]
-        ) 
+        )
+```
 # Analyze the model
-
+```
 metrics = pd.DataFrame(ai.history.history)
 metrics.head()
 
@@ -170,7 +171,7 @@ conf(y_truevalue,x_pred)
 
 print(report(y_truevalue,x_pred))
 
-
+```
 
 ## OUTPUT
 ### DATA information:
